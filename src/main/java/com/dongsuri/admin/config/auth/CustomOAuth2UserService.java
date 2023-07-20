@@ -2,8 +2,8 @@ package com.dongsuri.admin.config.auth;
 
 import com.dongsuri.admin.config.auth.dto.OAuthAttributes;
 import com.dongsuri.admin.config.auth.dto.SessionUser;
-import com.dongsuri.admin.domain.UserEntity;
-import com.dongsuri.admin.repository.AccountRepository;
+import com.dongsuri.admin.domain.User;
+import com.dongsuri.admin.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
@@ -20,7 +20,7 @@ import java.util.Collections;
 @RequiredArgsConstructor
 @Service
 public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
-    private final AccountRepository accountRepository;
+    private final UserRepository userRepository;
     private final HttpSession httpSession;
 
     @Override
@@ -35,20 +35,20 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         OAuthAttributes attributes = OAuthAttributes.of(registrationId, userNameAttributeName,
                 oAuth2User.getAttributes());
 
-        UserEntity account = saveOrUpdate(attributes);
+        User user = saveOrUpdate(attributes);
 
-        httpSession.setAttribute("account", new SessionUser(account));
+        httpSession.setAttribute("user", new SessionUser(user));
 
-        return new DefaultOAuth2User(Collections.singleton(new SimpleGrantedAuthority(account.getRoleKey())),
+        return new DefaultOAuth2User(Collections.singleton(new SimpleGrantedAuthority(user.getRoleKey())),
                 attributes.getAttributes(),
                 attributes.getNameAttributeKey());
     }
 
-    private UserEntity saveOrUpdate(OAuthAttributes attributes){
-        UserEntity account = accountRepository.findByEmail(attributes.getEmail())
+    private User saveOrUpdate(OAuthAttributes attributes){
+        User user = userRepository.findByEmail(attributes.getEmail())
                 .map(entity -> entity.update(attributes.getName(), attributes.getPicture()))
                 .orElse(attributes.toEntity());
 
-        return accountRepository.save(account);
+        return userRepository.save(user);
     }
 }

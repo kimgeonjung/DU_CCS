@@ -1,6 +1,6 @@
 package com.dongsuri.admin.repository;
 
-import com.dongsuri.admin.domain.UserEntity;
+import com.dongsuri.admin.domain.User;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,13 +14,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class AccountRepositoryTest {
+public class UserRepositoryTest {
     @Autowired
-    AccountRepository accountRepository;
+    UserRepository userRepository;
 
     @After
     public void cleanup(){
-        accountRepository.deleteAll();
+        userRepository.deleteAll();
     }
 
     @Test
@@ -29,16 +29,16 @@ public class AccountRepositoryTest {
         String name = "테스트 이름";
         String email = "테스트 이메일";
 
-        accountRepository.save(UserEntity.builder()
+        userRepository.save(User.builder()
                 .name(name)
                 .email(email)
                 .build());
 
         //when
-        List<UserEntity> userEntityList = accountRepository.findAll();
+        List<User> userList = userRepository.findAll();
 
         //then
-        UserEntity account = userEntityList.get(0);
+        User account = userList.get(0);
         assertThat(account.getName()).isEqualTo(name);
         assertThat(account.getEmail()).isEqualTo(email);
     }
