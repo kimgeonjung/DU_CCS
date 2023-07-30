@@ -16,8 +16,6 @@ import javax.servlet.http.HttpSession;
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
-    private final HttpSession httpSession;
-    private final BoardService boardService;
 
     @GetMapping("/")
     public String index(Model model, @LoginUser SessionUser user){
@@ -27,16 +25,4 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping("/board/save")
-    public String boardSave(){
-        return "board-save";
-    }
-
-    @GetMapping("/board/update/{id}")
-    public String boardUpdate(@PathVariable Long id, Model model){
-        BoardResponseDto dto = boardService.findById(id);
-        model.addAttribute("board", dto);
-
-        return "board-update";
-    }
 }

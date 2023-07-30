@@ -9,6 +9,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
+//기본 시간 데이터베이스
 @Getter
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)

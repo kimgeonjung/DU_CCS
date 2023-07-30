@@ -1,6 +1,6 @@
 package com.dongsuri.admin.config.auth;
 
-import com.dongsuri.admin.domain.Role;
+import com.dongsuri.admin.domain.enumFile.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -19,6 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     .authorizeRequests()
                     .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**").permitAll()
+                                                                //작성 권한 설정하는 부분
                     .antMatchers("/api/v1/**").hasRole(Role.REGISTER.name())
                     .anyRequest().authenticated()
                 .and()

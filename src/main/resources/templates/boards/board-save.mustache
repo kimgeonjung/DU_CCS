@@ -5,6 +5,13 @@
     <div class="col-md-4">
         <form>
             <div class="form-group">
+                <select id="categorys" name="categorys">
+                    <option value="NOTICE" selected>공지사항</option>
+                    <option value="DATA_ARCHIVE">자료게시판</option>
+                    <option value="PHOTO_GALLERY">포토갤러리</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="title">제목</label>
                 <input type="text" class="form-control" id="title" placeholder="제목을 입력하세요">
             </div>
@@ -17,7 +24,7 @@
                 <textarea class="form-control" id="content" placeholder="내용을 입력하세요"></textarea>
             </div>
         </form>
-        <a href="/" role="button" class="btn btn-secondary">취소</a>
+        <a href="/boards/boardList" role="button" class="btn btn-secondary">취소</a>
         <button type="button" class="btn btn-primary" id="btn-save">등록</button>
     </div>
 </div>

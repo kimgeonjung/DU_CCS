@@ -1,7 +1,7 @@
 package com.dongsuri.admin.config.auth.dto;
 
 import com.dongsuri.admin.domain.User;
-import com.dongsuri.admin.domain.Role;
+import com.dongsuri.admin.domain.enumFile.Role;
 import lombok.Builder;
 import lombok.Getter;
 

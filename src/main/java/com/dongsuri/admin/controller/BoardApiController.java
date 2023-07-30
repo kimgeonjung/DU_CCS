@@ -26,6 +26,12 @@ public class BoardApiController {
         return boardService.update(id, requestDto);
     }
 
+    @DeleteMapping("/api/v1/board/{id}")
+    public Long delete(@PathVariable Long id){
+        boardService.delete(id);
+        return id;
+    }
+
     @GetMapping("/api/v1/board/{id}")
     public BoardResponseDto findById (@PathVariable Long id){
         return boardService.findById(id);

@@ -1,4 +1,4 @@
-package com.dongsuri.admin.domain;
+package com.dongsuri.admin.domain.enumFile;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

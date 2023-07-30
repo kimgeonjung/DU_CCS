@@ -1,11 +1,13 @@
 package com.dongsuri.admin.domain;
 
+import com.dongsuri.admin.domain.enumFile.Role;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+//회원 데이터베이스
 @Getter
 @NoArgsConstructor
 @Entity
