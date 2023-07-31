@@ -36,10 +36,10 @@ public class BoardController {
         return "/boards/board-update";
     }
 
-    @GetMapping("/boards/board/{id}")
+    @GetMapping("/boards/board/detail/{id}")
     public String showBoardPage(@PathVariable Long id, Model model){
         BoardResponseDto dto = boardService.findById(id);
         model.addAttribute("board", dto);
-        return "boards/board";
+        return "boards/board-detail";
     }
 }

@@ -32,29 +32,30 @@ var main = {
         });
     },
     update : function() {
-          var data = {
-              categorys: $('#categorys').val(),
-              title: $('#title').val(),
-              content: $('#content').val()
-          };
-          var id = $('#id').val();
+        var data = {
+            categorys: $('#categorys').val(),
+            title: $('#title').val(),
+            content: $('#content').val()
+        };
+        var id = $('#id').val();
 
-          $.ajax({
-              type: 'PUT',
-              url: '/api/v1/board/'+id,
-              dataType: 'json',
-              contentType: 'application/json; charset=utf-8',
-              data: JSON.stringify(data)
-          }).done(function() {
-              alert('글이 수정되었습니다.');
-              window.location.href = '/';
-          }).fail(function(error) {
-              alert(JSON.stringify(error));
-          });
+        $.ajax({
+            type: 'PUT',
+            url: '/api/v1/board/'+id,
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(data)
+        }).done(function() {
+            alert('글이 수정되었습니다.');
+            window.location.href = '/';
+        }).fail(function(error) {
+            alert(JSON.stringify(error));
+        });
     },
     delete : function() {
         var id = $('#id').val();
 
+        console.log('id:', id); // 추가: id 값을 확인하기 위해 로그로 출력
         $.ajax({
             type: 'DELETE',
             url: '/api/v1/board/'+id,

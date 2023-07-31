@@ -1,15 +1,12 @@
 package com.dongsuri.admin.controller;
 
-import com.dongsuri.admin.dto.BoardListResponseDto;
 import com.dongsuri.admin.dto.BoardResponseDto;
 import com.dongsuri.admin.dto.BoardSaveRequestDto;
 import com.dongsuri.admin.dto.BoardUpdateRequestDto;
 import com.dongsuri.admin.service.BoardService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
