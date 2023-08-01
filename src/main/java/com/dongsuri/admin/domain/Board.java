@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.NotBlank;
 
 //게시판 데이터베이스
 @Getter
@@ -19,12 +21,16 @@ public class Board extends BaseTimeEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long board_id;
 
-    @Column(length = 500, nullable = false)
+    @NotBlank(message = "제목을 입력하세요.")
+    @Size(max = 500, message = "제목은 500자까지 입력 가능합니다.")
+    @Column(nullable = false)
     private String title;
 
+    @NotBlank(message = "내용을 입력하세요.")
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
 
+    @NotBlank(message = "작성자를 입력하세요.")
     @Column(nullable = false)
     private String author;
 

@@ -20,26 +20,6 @@ public class UserService {
         this.memberRepository = memberRepository;
     }
 
-    public void acceptUser(Long user_id){
-        User user = userRepository.findById(user_id).orElse(null);
-        if(user != null){
-            Member member = Member.builder()
-                    .name(user.getName())
-                    .email(user.getEmail())
-                    .picture(user.getPicture())
-                    .role(user.getRole())
-                    .build();
-
-            memberRepository.save(member);
-
-            userRepository.delete(user);
-        }
-    }
-
-    public void rejectUser(Long user_id){
-        userRepository.deleteById(user_id);
-    }
-
     public User getUserByEmail(String email){
         return userRepository.findByEmail(email).orElse(null);
     }

@@ -1,9 +1,5 @@
 package com.dongsuri.admin.domain;
 
-import com.dongsuri.admin.domain.enumFile.ClassName;
-import com.dongsuri.admin.domain.enumFile.Gender;
-import com.dongsuri.admin.domain.enumFile.Grade;
-import com.dongsuri.admin.domain.enumFile.Role;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,57 +16,15 @@ public class Member extends BaseTimeEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long member_id;
 
-    @Column(nullable = false)
-    private String name;
+    @OneToOne
+    private User user;
 
-    @Column(nullable = false)
-    private String email;
-
-    @Column
-    private String picture;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Role role;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Grade grade;
-
-    @Column(nullable = false, unique = true)
-    private int studentNum;
-
-    @Column(nullable = false, unique = true)
-    private String phone;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private ClassName className;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Gender gender;
-
-    @Column(nullable = false)
-    private String brithDate;
-
-    @Column(nullable = false, columnDefinition = "TEXT")
-    private String selfIntroduction;
-
-    @Column(nullable = false, columnDefinition = "TEXT")
-    private String motivation;
-
-    @Column(nullable = false, columnDefinition = "TEXT")
-    private String desiredActivity;
-
-    @Column(nullable = false, columnDefinition = "TEXT")
-    private String strengths;
+    @OneToOne
+    private RequestRegister requestRegister;
 
     @Builder
-    public Member(String name, String email, String picture, Role role){
-        this.name = name;
-        this.email = email;
-        this.picture = picture;
-        this.role = role;
+    public Member(User user, RequestRegister requestRegister){
+        this.user = user;
+        this.requestRegister = requestRegister;
     }
 }

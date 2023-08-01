@@ -49,4 +49,5 @@ public class BoardService {
                 .map(BoardListResponseDto::new)
                 .collect(Collectors.toList());
     }
+
 }

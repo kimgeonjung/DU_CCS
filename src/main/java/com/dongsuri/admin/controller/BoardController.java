@@ -42,4 +42,5 @@ public class BoardController {
         model.addAttribute("board", dto);
         return "boards/board-detail";
     }
+
 }
