@@ -19,7 +19,7 @@ public class RequestRegister extends BaseTimeEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long requestRegister_id;
+    private Long req_id;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
