@@ -1,24 +1,27 @@
-package com.dongsuri.admin.dto;
+package com.dongsuri.admin.dto.boardDto;
 
 import com.dongsuri.admin.domain.Board;
 import com.dongsuri.admin.domain.enumFile.Categorys;
 import lombok.Getter;
+import lombok.Setter;
 
-import java.time.LocalDateTime;
-
+@Setter
 @Getter
-public class BoardListResponseDto {
+public class BoardResponseDto {
     private Long id;
     private Categorys categorys;
     private String title;
+    private String content;
+    private String author;
     private int viewCount;
-    private LocalDateTime modifiedDate;
 
-    public BoardListResponseDto(Board entity){
+
+    public BoardResponseDto(Board entity){
         this.id = entity.getId();
         this.categorys = entity.getCategorys();
         this.title = entity.getTitle();
+        this.content = entity.getContent();
+        this.author = entity.getAuthor();
         this.viewCount = entity.getViewCount();
-        this.modifiedDate = entity.getModifiedDate();
     }
 }

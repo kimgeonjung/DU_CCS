@@ -1,7 +1,7 @@
 package com.dongsuri.admin.controller;
 
-import com.dongsuri.admin.dto.BoardListResponseDto;
-import com.dongsuri.admin.dto.BoardResponseDto;
+import com.dongsuri.admin.dto.boardDto.BoardListResponseDto;
+import com.dongsuri.admin.dto.boardDto.BoardResponseDto;
 import com.dongsuri.admin.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

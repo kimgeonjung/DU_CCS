@@ -20,11 +20,11 @@ public class Member extends BaseTimeEntity{
     private User user;
 
     @OneToOne
-    private RequestRegister requestRegister;
+    private Register register;
 
     @Builder
-    public Member(User user, RequestRegister requestRegister){
+    public Member(User user, Register register){
         this.user = user;
-        this.requestRegister = requestRegister;
+        this.register = register;
     }
 }

@@ -1,10 +1,10 @@
 package com.dongsuri.admin.service;
 
 import com.dongsuri.admin.domain.Board;
-import com.dongsuri.admin.dto.BoardListResponseDto;
-import com.dongsuri.admin.dto.BoardResponseDto;
-import com.dongsuri.admin.dto.BoardSaveRequestDto;
-import com.dongsuri.admin.dto.BoardUpdateRequestDto;
+import com.dongsuri.admin.dto.boardDto.BoardListResponseDto;
+import com.dongsuri.admin.dto.boardDto.BoardResponseDto;
+import com.dongsuri.admin.dto.boardDto.BoardSaveRequestDto;
+import com.dongsuri.admin.dto.boardDto.BoardUpdateRequestDto;
 import com.dongsuri.admin.repository.BoardRepository;
 
 import lombok.RequiredArgsConstructor;

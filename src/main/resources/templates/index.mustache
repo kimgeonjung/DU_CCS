@@ -14,7 +14,24 @@
             {{/userName}}
 
             <br>
-            <a href="/boards/boardList" role="button" class="btn btn-primary">게시글 목록</a>
+            <!--상단 바로가기 바 항목: 게시판, 회원관리-->
+            <div class="col-md-6">
+                <!--상단 바로가기 바 항목: 게시판, 회원관리, 일정, 쪽지-->
+                <div class="d-flex justify-content-around">
+                    <a href="/boards/boardList" role="button" class="btn btn-primary">게시판</a>
+                    <div class="dropdown d-inline-block">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            회원 관리
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/members/memberList">회원 목록</a>
+                            <a class="dropdown-item" href="/registers/registerList">가입신청서 확인</a>
+                        </div>
+                    </div>
+                    <a href="#" role="button" class="btn btn-primary">일정</a>
+                    <a href="#" role="button" class="btn btn-primary">쪽지</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

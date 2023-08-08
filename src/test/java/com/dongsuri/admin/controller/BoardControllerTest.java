@@ -1,12 +1,11 @@
 package com.dongsuri.admin.controller;
 
 import com.dongsuri.admin.domain.Board;
-import com.dongsuri.admin.dto.BoardSaveRequestDto;
-import com.dongsuri.admin.dto.BoardUpdateRequestDto;
+import com.dongsuri.admin.dto.boardDto.BoardSaveRequestDto;
+import com.dongsuri.admin.dto.boardDto.BoardUpdateRequestDto;
 import com.dongsuri.admin.repository.BoardRepository;
 
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -18,22 +17,16 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.MediaType; //5.7추가
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc; //5.7추가
-import org.springframework.test.web.servlet.setup.MockMvcBuilders; //5.7추가
-import org.springframework.security.test.context.support.WithMockUser; //5.7추가
-import org.springframework.web.context.WebApplicationContext; //5.7추가
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.failBecauseExceptionWasNotThrown;
 
 import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity; //5.7추가
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class BoardControllerTest {

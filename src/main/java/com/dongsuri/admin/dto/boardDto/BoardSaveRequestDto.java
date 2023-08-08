@@ -1,4 +1,4 @@
-package com.dongsuri.admin.dto;
+package com.dongsuri.admin.dto.boardDto;
 
 import com.dongsuri.admin.domain.Board;
 import com.dongsuri.admin.domain.enumFile.Categorys;
