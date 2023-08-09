@@ -1,6 +1,6 @@
 package com.dongsuri.admin.domain;
 
-import com.dongsuri.admin.domain.enumFile.ClassName;
+import com.dongsuri.admin.domain.enumFile.Class_Name;
 import com.dongsuri.admin.domain.enumFile.Gender;
 import com.dongsuri.admin.domain.enumFile.Grade;
 import lombok.Builder;
@@ -19,7 +19,7 @@ public class Register extends BaseTimeEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long req_id;
+    private Long register_id;
 
     @Column(nullable = false)
     private String req_name;
@@ -36,7 +36,7 @@ public class Register extends BaseTimeEntity{
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private ClassName class_name;
+    private Class_Name class_name;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -58,7 +58,7 @@ public class Register extends BaseTimeEntity{
     private String strengths;
 
     @Builder
-    public Register(String req_name, Grade grade, int student_num, String phone, ClassName class_name,
+    public Register(String req_name, Grade grade, int student_num, String phone, Class_Name class_name,
                     Gender gender, String brith_date, String self_introduction, String motivation,
                     String desired_activity, String strengths){
         this.req_name = req_name;

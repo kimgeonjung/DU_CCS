@@ -39,9 +39,9 @@ public class MemberService {
                 .collect(Collectors.toList());
     }
 
-    public void acceptUser(Long user_id, Long req_id){
+    public void acceptUser(Long user_id, Long register_id){
         User user = userRepository.findById(user_id).orElse(null);
-        Register req = registerRepository.findById(req_id).orElse(null);
+        Register req = registerRepository.findById(register_id).orElse(null);
         if(user != null && req != null){
             Member member = Member.builder()
                     .user(user)
@@ -55,9 +55,9 @@ public class MemberService {
         }
     }
 
-    public void rejectUser(Long user_id, Long req_id){
+    public void rejectUser(Long user_id, Long register_id){
         User user = userRepository.findById(user_id).orElse(null);
-        Register req = registerRepository.findById(req_id).orElse(null);
+        Register req = registerRepository.findById(register_id).orElse(null);
         if(user != null && req != null){
             userRepository.delete(user);
             registerRepository.delete(req);

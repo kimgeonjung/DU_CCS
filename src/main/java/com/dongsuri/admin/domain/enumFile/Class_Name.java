@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum ClassName {
+public enum Class_Name {
     A_CLASS("A_CLASS", "A반"),
     B_CLASS("B_CLASS", "B반"),
     C_CLASS("C_CLASS", "C반");

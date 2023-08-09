@@ -1,7 +1,7 @@
 package com.dongsuri.admin.dto.memberDto;
 
 import com.dongsuri.admin.domain.Member;
-import com.dongsuri.admin.domain.enumFile.ClassName;
+import com.dongsuri.admin.domain.enumFile.Class_Name;
 import com.dongsuri.admin.domain.enumFile.Grade;
 import lombok.Getter;
 
@@ -9,7 +9,7 @@ import lombok.Getter;
 public class MemberListResponseDto {
     private Long id;
     private Grade grade;
-    private ClassName className;
+    private Class_Name className;
     private String phone;
     private String name;
 
