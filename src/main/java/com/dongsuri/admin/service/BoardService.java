@@ -38,9 +38,9 @@ public class BoardService {
     }
 
     public BoardResponseDto findById (Long id){
-        Board entity = boardRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
-        entity.setViewCount(entity.getViewCount() + 1);
-        return new BoardResponseDto(entity);
+        Board board = boardRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
+        board.increaseViewCount();
+        return new BoardResponseDto(board);
     }
 
     @Transactional(readOnly = true)

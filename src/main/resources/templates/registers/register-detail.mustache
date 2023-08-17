@@ -1,29 +1,32 @@
 {{>layout/header}}
 
 <h1>가입신청서</h1>
-
+{{#register}}
 <div class="row">
     <div class="col-md-12">
         <!-- 개인 정보 -->
         <table class="table table-bordered">
             <tbody>
+
             <tr>
                 <th>이름</th>
-                <td>{{register.req_name}}</td>
+                <td>{{name}}</td>
                 <th>학년</th>
-                <td>{{register.grade}}</td>
+                <td>{{grade.title}}</td>
                 <th>학번</th>
-                <td>{{register.student_num}}</td>
+                <td>{{student_num}}</td>
                 <th>전화번호</th>
-                <td>{{register.phone}}</td>
+                <td>{{phone}}</td>
             </tr>
             <tr>
                 <th>반</th>
-                <td>{{register.class_name}}</td>
+                <td>{{class_name.title}}</td>
                 <th>성별</th>
-                <td>{{register.gender}}</td>
+                <td>{{gender.title}}</td>
                 <th>생년월일</th>
-                <td>{{register.brith_date}}</td>
+                <td>{{brith_date}}</td>
+                <th>이메일</th>
+                <td>{{email}}</td>
             </tr>
             </tbody>
         </table>
@@ -36,14 +39,14 @@
                 <!-- 자기소개 -->
                 <div class="form-group">
                     <label for="selfIntroduction">자기소개</label>
-                    <textarea class="form-control" id="selfIntroduction" rows="4">{{register.self_introduction}}</textarea>
+                    <textarea class="form-control" id="selfIntroduction" rows="4">{{self_introduction}}</textarea>
                 </div>
             </div>
             <div class="col-md-6">
                 <!-- 지원동기 -->
                 <div class="form-group">
                     <label for="motivation">지원동기</label>
-                    <textarea class="form-control" id="motivation" rows="4">{{register.motivation}}</textarea>
+                    <textarea class="form-control" id="motivation" rows="4">{{motivation}}</textarea>
                 </div>
             </div>
         </div>
@@ -52,17 +55,18 @@
                 <!-- 하고싶은 활동 -->
                 <div class="form-group">
                     <label for="desiredActivity">하고싶은 활동</label>
-                    <textarea class="form-control" id="desiredActivity" rows="4">{{register.desired_activity}}</textarea>
+                    <textarea class="form-control" id="desiredActivity" rows="4">{{desired_activity}}</textarea>
                 </div>
             </div>
             <div class="col-md-6">
                 <!-- 자신의 장점 -->
                 <div class="form-group">
                     <label for="strengths">자신의 장점</label>
-                    <textarea class="form-control" id="strengths" rows="4">{{register.strengths}}</textarea>
+                    <textarea class="form-control" id="strengths" rows="4">{{strengths}}</textarea>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 
@@ -71,13 +75,10 @@
         <a href="/registers/registerList" class="btn btn-primary">목록</a>
     </div>
     <div class="col-md-6 text-right">
-        <form action="/registers/register/accept/{{id}}" method="post" style="display: inline;">
-            <button class="btn btn-success" type="submit">가입 승인</button>
-        </form>
-        <form action="/registers/register/reject/{{id}}" method="post" style="display: inline;">
-            <button class="btn btn-danger" type="submit">거절</button>
-        </form>
+        <button class="btn btn-success" onclick="acceptUser('{{id}}')">가입 승인</button>
+        <button class="btn btn-danger" onclick="rejectUser('{{id}}')">거절</button>
     </div>
 </div>
-
+{{/register}}
 {{>layout/footer}}
+<script src="/js/app/register-action.js"></script>

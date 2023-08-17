@@ -1,9 +1,11 @@
 package com.dongsuri.admin.controller;
 
+import com.dongsuri.admin.dto.boardDto.BoardResponseDto;
 import com.dongsuri.admin.dto.registerDto.RegisterListResponseDto;
 import com.dongsuri.admin.dto.registerDto.RegisterResponseDto;
-import com.dongsuri.admin.service.RegisterService;
+import com.dongsuri.admin.service.MemberService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,19 +16,19 @@ import java.util.List;
 @RequiredArgsConstructor
 @Controller
 public class RegisterController {
-    private final RegisterService registerService;
+    private final MemberService memberService;
 
     @GetMapping("/registers/registerList")
     public String showRegisterListPage(Model model){
-        List<RegisterListResponseDto> registerListResponseDtos = registerService.findAllDesc();
-        model.addAttribute("register", registerListResponseDtos);
+        List<RegisterListResponseDto> registerList = memberService.findAllDescWithRegisterRole();
+        model.addAttribute("registerList", registerList);
         return "registers/registerList";
     }
 
     @GetMapping("/registers/register/detail/{id}")
     public String showRegisterPage(@PathVariable Long id, Model model){
-        RegisterResponseDto dto = registerService.findById(id);
-        model.addAttribute("register", dto);
+        RegisterResponseDto register = memberService.findByIdRegister(id);
+        model.addAttribute("register", register);
         return "registers/register-detail";
     }
 }

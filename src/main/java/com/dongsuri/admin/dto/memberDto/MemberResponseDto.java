@@ -1,13 +1,15 @@
-package com.dongsuri.admin.dto.registerDto;
+package com.dongsuri.admin.dto.memberDto;
 
 import com.dongsuri.admin.domain.Member;
 import com.dongsuri.admin.domain.enumFile.Class_Name;
 import com.dongsuri.admin.domain.enumFile.Gender;
 import com.dongsuri.admin.domain.enumFile.Grade;
+
+import com.dongsuri.admin.domain.enumFile.Role;
 import lombok.Getter;
 
 @Getter
-public class RegisterResponseDto {
+public class MemberResponseDto {
     private String name;
     private String email;
     private Grade grade;
@@ -20,9 +22,9 @@ public class RegisterResponseDto {
     private String motivation;
     private String desired_activity;
     private String strengths;
+    private Role role;
 
-
-    public RegisterResponseDto(Member entity){
+    public MemberResponseDto(Member entity){
         this.name = entity.getUser().getName();
         this.email = entity.getUser().getEmail();
         this.grade = entity.getGrade();
@@ -35,5 +37,6 @@ public class RegisterResponseDto {
         this.motivation = entity.getMotivation();
         this.desired_activity = entity.getDesired_activity();
         this.strengths = entity.getStrengths();
+        this.role = entity.getUser().getRole();
     }
 }

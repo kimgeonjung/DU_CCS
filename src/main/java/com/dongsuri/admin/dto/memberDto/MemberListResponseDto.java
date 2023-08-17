@@ -15,9 +15,9 @@ public class MemberListResponseDto {
 
     public MemberListResponseDto(Member entity){
         this.id = entity.getMember_id();
-        this.grade = entity.getRegister().getGrade();
-        this.className = entity.getRegister().getClass_name();
-        this.phone = entity.getRegister().getPhone();
+        this.grade = entity.getGrade();
+        this.className = entity.getClass_name();
+        this.phone = entity.getPhone();
         this.name = entity.getUser().getName();
     }
 }

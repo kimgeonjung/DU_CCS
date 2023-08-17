@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/member")
+@RequestMapping("/api/v1/members/member")
 public class MemberApiController {
     private final MemberService memberService;
 
@@ -18,15 +18,4 @@ public class MemberApiController {
         this.memberService = memberService;
     }
 
-    @PostMapping("/accept/{userId}/{reqId}")
-    public ResponseEntity<String> acceptMembership(@PathVariable Long userId, @PathVariable Long reqId) {
-        memberService.acceptUser(userId, reqId);
-        return ResponseEntity.ok("Membership accepted");
-    }
-
-    @PostMapping("/reject/{userId}/{reqId}")
-    public ResponseEntity<String> rejectMembership(@PathVariable Long userId, @PathVariable Long reqId) {
-        memberService.rejectUser(userId, reqId);
-        return ResponseEntity.ok("Membership rejected");
-    }
 }

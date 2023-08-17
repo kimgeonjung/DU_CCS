@@ -4,7 +4,6 @@ import com.dongsuri.admin.domain.enumFile.Categorys;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -12,7 +11,6 @@ import javax.validation.constraints.NotBlank;
 
 //게시판 데이터베이스
 @Getter
-@Setter
 @NoArgsConstructor
 @Entity
 public class Board extends BaseTimeEntity{
@@ -54,6 +52,10 @@ public class Board extends BaseTimeEntity{
         this.title = title;
         this.content = content;
         this.categorys = categorys;
+    }
+
+    public void increaseViewCount(){
+        this.viewCount++;
     }
 
     public Long getId() {
