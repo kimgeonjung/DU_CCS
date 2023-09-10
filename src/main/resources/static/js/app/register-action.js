@@ -7,7 +7,7 @@ function acceptUser(memberId) {
         })
         .then(response => {
             if (response.ok) {
-                // 가입 승인 처리 후 목록 페이지로 리다이렉션
+                // 가입 승인 처리 후 회원 목록 페이지로 리다이렉션
                 window.location.href = "/members/memberList";
             } else {
                 alert("가입 승인 중에 오류가 발생했습니다.");
@@ -29,7 +29,7 @@ function rejectUser(memberId) {
         })
         .then(response => {
             if (response.ok) {
-                // 가입 거절 처리 후 목록 페이지로 리다이렉션
+                // 가입 거절 처리 후 가입신청 목록 페이지로 리다이렉션
                 window.location.href = "/registers/registerList";
             } else {
                 alert("가입 거절 중에 오류가 발생했습니다.");

@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum Categorys {
+public enum Categories {
     NOTICE("NOTICE", "공지사항"),
     DATA_ARCHIVE("DATA_ARCHIVE", "자료게시판"),
     PHOTO_GALLERY("PHOTO_GALLERY", "포토갤러리");

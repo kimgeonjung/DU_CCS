@@ -13,7 +13,7 @@ var main = {
     },
     save : function() {
         var data = {
-            categorys: $('#categorys').val(),
+            categories: $('#categories').val(),
             title: $('#title').val(),
             author: $('#author').val(),
             content: $('#content').val()
@@ -33,7 +33,7 @@ var main = {
     },
     update : function() {
         var data = {
-            categorys: $('#categorys').val(),
+            categories: $('#categories').val(),
             title: $('#title').val(),
             content: $('#content').val()
         };

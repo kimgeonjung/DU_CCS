@@ -6,11 +6,13 @@ import com.dongsuri.admin.domain.enumFile.Grade;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 //회원 데이터베이스
 @Getter
+@Setter
 @NoArgsConstructor
 @Entity
 public class Member extends BaseTimeEntity{
@@ -75,4 +77,5 @@ public class Member extends BaseTimeEntity{
         this.desired_activity = desired_activity;
         this.strengths = strengths;
     }
+
 }

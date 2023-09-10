@@ -1,5 +1,6 @@
 package com.dongsuri.admin.controller;
 
+import com.dongsuri.admin.dto.boardDto.BoardResponseDto;
 import com.dongsuri.admin.dto.memberDto.MemberListResponseDto;
 import com.dongsuri.admin.dto.memberDto.MemberResponseDto;
 import com.dongsuri.admin.dto.registerDto.RegisterListResponseDto;
@@ -32,6 +33,14 @@ public class MemberController {
         MemberResponseDto memberResponseDto = memberService.findByIdMember(id);
         model.addAttribute("member", memberResponseDto);
         return "members/member-detail";
+    }
+
+    @GetMapping("/members/member/update/{id}")
+    public String memberUpdate(@PathVariable Long id, Model model){
+        MemberResponseDto memberResponseDto = memberService.findByIdMember(id);
+        model.addAttribute("member", memberResponseDto);
+
+        return "/members/member-update";
     }
 
 }

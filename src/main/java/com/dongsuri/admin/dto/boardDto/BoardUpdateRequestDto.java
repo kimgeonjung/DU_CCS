@@ -1,6 +1,6 @@
 package com.dongsuri.admin.dto.boardDto;
 
-import com.dongsuri.admin.domain.enumFile.Categorys;
+import com.dongsuri.admin.domain.enumFile.Categories;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,12 +10,12 @@ import lombok.NoArgsConstructor;
 public class BoardUpdateRequestDto {
     private String title;
     private String content;
-    private Categorys categorys;
+    private Categories categories;
 
     @Builder
-    public BoardUpdateRequestDto(String title, String content, Categorys categorys){
+    public BoardUpdateRequestDto(String title, String content, Categories categories){
         this.title = title;
         this.content = content;
-        this.categorys = categorys;
+        this.categories = categories;
     }
 }

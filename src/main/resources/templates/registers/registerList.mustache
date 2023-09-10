@@ -12,7 +12,7 @@
     <tbody id="tbody">
     {{#registerList}}
         <tr data-href="/registers/register/detail/{{id}}">
-            <td>{{grade}}</td>
+            <td>{{grade.title}}</td>
             <td>{{student_num}}</td>
             <td>{{name}}</td>
             <td>{{modifiedDate}}</td>
@@ -22,15 +22,4 @@
 </table>
 
 {{>layout/footer}}
-<script>
-    // 행 전체를 클릭하면 상세 페이지로 이동하는 함수
-    const rows = document.querySelectorAll("tr[data-href]");
-    rows.forEach(row => {
-        row.addEventListener("click", () => {
-            const href = row.getAttribute("data-href");
-            if (href) {
-                window.location.href = href;
-            }
-        });
-    });
-</script>
+<script src="/js/app/row-click.js"></script>

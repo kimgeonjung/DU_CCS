@@ -1,6 +1,6 @@
 package com.dongsuri.admin.domain;
 
-import com.dongsuri.admin.domain.enumFile.Categorys;
+import com.dongsuri.admin.domain.enumFile.Categories;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,21 +37,21 @@ public class Board extends BaseTimeEntity{
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Categorys categorys;
+    private Categories categories;
 
     @Builder
-    public Board(String title, String content, String author, int viewCount, Categorys categorys){
+    public Board(String title, String content, String author, int viewCount, Categories categories){
         this.title = title;
         this.content = content;
         this.author = author;
         this.viewCount = viewCount;
-        this.categorys = categorys;
+        this.categories = categories;
     }
 
-    public void update(String title, String content, Categorys categorys){
+    public void update(String title, String content, Categories categories){
         this.title = title;
         this.content = content;
-        this.categorys = categorys;
+        this.categories = categories;
     }
 
     public void increaseViewCount(){

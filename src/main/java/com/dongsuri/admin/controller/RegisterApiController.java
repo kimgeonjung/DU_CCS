@@ -17,15 +17,18 @@ public class RegisterApiController {
         this.memberService = memberService;
     }
 
+    // 회원가입 수락 기능
     @PostMapping("/accept/{member_id}")
     public ResponseEntity<String> acceptRegister(@PathVariable Long member_id){
         memberService.acceptUser(member_id);
         return ResponseEntity.ok("Success");
     }
 
+    // 회원가입 거절 기능
     @PostMapping("/reject/{member_id}")
     public ResponseEntity<String> rejectRegister(@PathVariable Long member_id){
         memberService.rejectUser(member_id);
         return ResponseEntity.ok("Success");
     }
+
 }
