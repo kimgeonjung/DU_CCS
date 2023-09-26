@@ -1,6 +1,7 @@
 package com.dongsuri.admin.repository;
 
 import com.dongsuri.admin.domain.User;
+import com.dongsuri.admin.domain.enumFile.Role;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,10 +29,14 @@ public class UserRepositoryTest {
         //given
         String name = "테스트 이름";
         String email = "테스트 이메일";
+        String picture = "사진";
+        Role role = Role.USER;
 
         userRepository.save(User.builder()
-                .name(name)
-                .email(email)
+                        .name(name)
+                        .email(email)
+                        .picture(picture)
+                        .role(role)
                 .build());
 
         //when
@@ -41,5 +46,7 @@ public class UserRepositoryTest {
         User account = userList.get(0);
         assertThat(account.getName()).isEqualTo(name);
         assertThat(account.getEmail()).isEqualTo(email);
+        assertThat(account.getPicture()).isEqualTo(picture);
+        assertThat(account.getRole()).isEqualTo(role);
     }
 }

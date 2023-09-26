@@ -1,6 +1,7 @@
 package com.dongsuri.admin.repository;
 
 import com.dongsuri.admin.domain.Board;
+import com.dongsuri.admin.domain.enumFile.Categories;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,11 +30,15 @@ public class BoardRepositoryTest {
         //given
         String title = "테스트게시글";
         String content = "테스트 본문";
+        int viewCount = 1;
+        Categories categories = Categories.NOTICE;
 
         boardRepository.save(Board.builder()
-                .title(title)
-                .content(content)
-                .author("rjs2021@gmail.com")
+                        .title(title)
+                        .content(content)
+                        .author("rjs2021@gmail.com")
+                        .viewCount(viewCount)
+                        .categories(categories)
                 .build()
         );
         //when
@@ -43,6 +48,8 @@ public class BoardRepositoryTest {
         Board board = boardsList.get(0);
         assertThat(board.getTitle()).isEqualTo(title);
         assertThat(board.getContent()).isEqualTo(content);
+        assertThat(board.getCategories()).isEqualTo(categories);
+        assertThat(board.getViewCount()).isEqualTo(viewCount);
     }
 
 }
