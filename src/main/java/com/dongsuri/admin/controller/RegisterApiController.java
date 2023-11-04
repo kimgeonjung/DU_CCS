@@ -2,20 +2,16 @@ package com.dongsuri.admin.controller;
 
 
 import com.dongsuri.admin.service.MemberService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("api/v1/registers/register")
 public class RegisterApiController {
     private final MemberService memberService;
-
-    @Autowired
-    public RegisterApiController(MemberService memberService){
-        this.memberService = memberService;
-    }
 
     // 회원가입 수락 기능
     @PostMapping("/accept/{member_id}")

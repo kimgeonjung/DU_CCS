@@ -28,7 +28,6 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
     private final UserRepository userRepository;
-    private final BoardRepository boardRepository;
 
 
     // 필터링 없이 회원 목록 출력. 현재 미사용
@@ -98,16 +97,8 @@ public class MemberService {
         return "redirect:/registers/registerList";
     }
 
-    // 회원 권한 변경 기능
-//    @Transactional
-//    public void updateMemberRole(Long member_id, String role){
-//        Member member = memberRepository.findById(member_id).orElseThrow(()-> new IllegalArgumentException("해당 회원이 없습니다. id=" + member_id));
-//        Role newRole = Role.valueOf(role);
-//        member.getUser().updateRole(newRole);
-//        memberRepository.save(member);
-//    }
 
-    // 수정 기능
+    // 회원 수정 기능
     @Transactional
     public Long updateMember(Long id, MemberUpdateRequestDto requestDto){
         Member member = memberRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 회원이 존재하지 않습니다. id=" + id));
@@ -115,15 +106,16 @@ public class MemberService {
         member.setGrade(requestDto.getGrade());
         member.setPhone(requestDto.getPhone());
         member.setClass_name(requestDto.getClass_name());
-
         Role newRole = Role.valueOf(requestDto.getRole());
         member.getUser().updateRole(newRole);
         return id;
     }
 
-//    @Transactional
-//    public void delete(Long id){
-//        Board board = boardRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
-//        boardRepository.delete(board);
-//    }
+    // 회원 삭제 기능
+    @Transactional
+    public void delete(Long id){
+        Member member = memberRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
+        memberRepository.delete(member);
+    }
+
 }

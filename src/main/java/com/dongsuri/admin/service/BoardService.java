@@ -19,11 +19,13 @@ import java.util.stream.Collectors;
 public class BoardService {
     private final BoardRepository boardRepository;
 
+    // 게시글 저장 기능
     @Transactional
     public Long save(BoardSaveRequestDto requestDto){
         return boardRepository.save(requestDto.toEntity()).getId();
     }
 
+    // 게시글 수정 기능
     @Transactional
     public Long update(Long id, BoardUpdateRequestDto requestDto){
         Board board = boardRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
@@ -31,18 +33,21 @@ public class BoardService {
         return id;
     }
 
+    // 게시글 삭제 기능
     @Transactional
     public void delete(Long id){
         Board board = boardRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
         boardRepository.delete(board);
     }
 
+    // 게시글 불러오기
     public BoardResponseDto findById (Long id){
         Board board = boardRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
         board.increaseViewCount();
         return new BoardResponseDto(board);
     }
 
+    //게시글 목록 불러오기
     @Transactional(readOnly = true)
     public List<BoardListResponseDto> findAllDesc(){
         return boardRepository.findAllDesc().stream()

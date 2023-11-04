@@ -26,14 +26,14 @@
             </div>
         </form>
         <a href="/boards/boardList" role="button" class="btn btn-secondary">취소</a>
-        <button type="button" class="btn btn-primary" id="btn-update">수정완료</button>
-        <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
+        <button type="button" class="btn btn-primary" id="board-update">수정완료</button>
+        <button type="button" class="btn btn-danger" id="board-delete">삭제</button>
     </div>
 </div>
 
 
 {{>layout/footer}}
-
+<script src="/js/app/board-crud.js"></script>
 <script>
 function addOptionToSelect(value, label, selected) {
     var select = document.getElementById("categories");
